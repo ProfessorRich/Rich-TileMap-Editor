@@ -88,6 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Awareness\Desktop\Games Development\lua\src;C:\Users\Awareness\Desktop\Games Development\SDL_ttf\include;C:\Users\Awareness\Desktop\Games Development\SDL_image\include;C:\Users\Awareness\Desktop\Games Development\SDL\include;C:\Users\Awareness\Desktop\Games Development\glm\glm;C:\Users\Awareness\Desktop\Games Development\lua\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,10 +142,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="Editor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Editor.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
