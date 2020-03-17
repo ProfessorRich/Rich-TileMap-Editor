@@ -15,10 +15,12 @@ private:
 	EntityManager& g_entityManager;
 	std::vector<Component*> m_components;
 	std::map<const std::type_info*, Component*> m_componentTypeMap;
+	std::string m_name;
 	bool m_isActive;
 
 public:
 	Entity(EntityManager& manager);
+	Entity(EntityManager& manager, std::string);
 
 	void Destroy();
 
@@ -26,6 +28,10 @@ public:
 	void Render(SDL_Renderer*);
 
 	bool GetIsActive();
+
+	std::string GetName();
+
+	void ListAllComponents() const;
 
 	// I don't really understand template syntax... but the idea here is that whatever type of component is 'added' by AddComponent, this will deal with it.
 	template <typename T, typename... TArgs>
@@ -45,6 +51,7 @@ public:
 		}
 		else {
 			std::cerr << "Error: Component not found in entity!" << std::endl;
+			return NULL;
 		}
 	}
 

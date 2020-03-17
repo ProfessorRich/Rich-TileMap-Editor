@@ -7,6 +7,7 @@ int main(int argc, char* args[])
 	mainEd->Initialise();
 
 	while (mainEd->GetIsRunning()) {
+		mainEd->ProcessInput();
 		mainEd->Update();
 		mainEd->Render();
 	}

@@ -14,7 +14,7 @@ public:
 	int g_height;
 	int g_scale;
 
-	TransformComponent(int posX, int posY, int velX, int velY, int width, int height, int scale) {
+	TransformComponent(int posX, int posY, int width, int height, int scale) {
 		g_position = glm::vec2(posX, posY);
 		g_width = width;
 		g_height = height;
@@ -26,9 +26,22 @@ public:
 	}
 
 	void Update(float deltaTime) {
+		// Clamps entity to boundaries (such as the map...)
+		if (g_position.x < 0) {
+			g_position.x = 0;
+		}
+		if (g_position.x > G_MAP_WIDTH*G_TILESIZE) {
+			g_position.x = G_MAP_WIDTH*G_TILESIZE;
+		}
+		if (g_position.y < 0) {
+			g_position.y = 0;
+		}
+		if (g_position.y > ((G_MAP_HEIGHT-1)*G_TILESIZE)) {
+			g_position.y = ((G_MAP_HEIGHT-1)*G_TILESIZE);
+		}
 	}
 
-	// Clamps entity to boundaries (such as the map...)
+	
 
 	void Render() {
 																						// overridden by SpriteComponent
